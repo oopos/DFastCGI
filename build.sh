@@ -49,7 +49,7 @@ DESTDIR="../install"
 LIBDIR_PATH=""
 DFLAGS="-w -g -op -c -od../build"
 
-while getopts “hvqscf:l:p:” OPTION
+while getopts "hvqsc:f:l:p:" OPTION
 do
     case $OPTION in
         c)
@@ -202,9 +202,9 @@ case ${DC} in
             echo "not supported"
         else
             if [[ $VERBOSE -ge 2 ]]; then
-                echo -e "${DC} -lib *.o -of ${LIBDIR_PATH}/libDFastCGI-${COMPILER}.a"
+                echo -e "${DC} -lib *.o -of${LIBDIR_PATH}/libDFastCGI-${COMPILER}.a"
             fi
-            ${DC} -lib  $(find . -name "*.o") -of ${LIBDIR_PATH}/libDFastCGI-${COMPILER}.a
+            ${DC} -lib  $(find . -name "*.o") -of${LIBDIR_PATH}/libDFastCGI-${COMPILER}.a
             if [[ $? -ge 1 ]]; then
                 fail "${DC} -lib"
             fi
